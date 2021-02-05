@@ -1,0 +1,26 @@
+create table tipo_documento(
+	id INT(11) NOT NULL auto_increment,
+    descripcion varchar(50) Not null,
+	primary key(id)
+);
+
+insert into tipo_documento (descripcion) values ('DNI');
+insert into tipo_documento (descripcion) values ('Cedula');
+insert into tipo_documento (descripcion) values ('Pasaporte');
+
+create table persona(
+	id INT(11) NOT NULL AUTO_INCREMENT,
+    nombre varchar(50) NOT NULL,
+    apellido varchar(50) NOT NULL,
+    fecha_nacimiento date not null,
+    numero_documento INT(11) NOT NULL,
+    id_tipo_documento INT(11) NOT NULL,
+    fecha_insercion date not null,
+    fecha_actualizacion date not null,
+    primary key(id),
+    FOREIGN KEY
+    (id_tipo_documento)
+    REFERENCES tipo_documento (id)
+);
+
+
